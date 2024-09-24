@@ -1,2 +1,5 @@
-package bsp3;public interface NumberTest {
+package bsp3;
+
+public interface NumberTest {
+    boolean testNumber(int number);
 }
