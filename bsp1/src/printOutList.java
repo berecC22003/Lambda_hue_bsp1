@@ -1,2 +1,3 @@
-package PACKAGE_NAME;public interface printOutList {
+public interface printOutList<T> {
+    String param(T param);
 }

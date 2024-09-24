@@ -4,12 +4,14 @@ import java.util.List;
 public class HalloJavamitForEach {
     List<String> stringListOld = new ArrayList<>();
 
-    public void printOld(List<String> stringList){
-        for(String arrayList: stringList){
+    public void printOld(){
+        for(String arrayList: stringListOld){
             System.out.println(arrayList);
         }
     }
 
+    public void printNew(){
+        stringListOld.forEach(System.out::println);
+    }
 
-    
 }
