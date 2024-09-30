@@ -11,8 +11,8 @@ public class CsvFileReadIn {
 
     public void readIn(String filename, NumberTester numberTester)  {
         try (BufferedReader br = new BufferedReader(new FileReader(filename))){
-            int numberOfTestcases = Integer.parseInt(br.readLine());
-            for(int i = 0; i<numberOfTestcases; i++){
+            int numberOfTestCases = Integer.parseInt(br.readLine());
+            for(int i = 0; i<numberOfTestCases; i++){
                 String line = br.readLine();
                 String[] parts = line.split(" ");
                 int testType = Integer.parseInt(parts[0]);
