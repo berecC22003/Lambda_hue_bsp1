@@ -1,24 +1,30 @@
 package bsp3;
 
 import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.stream.Stream;
 
 public class CsvFileReadIn {
-    String line;
-    int[] whichTest;
-    int[] testNumbers;
+    private final String filename;
 
-    public String readIn(String filename) throws IOException {
-        BufferedReader bufferedReader = new BufferedReader(new FileReader(filename));
-        bufferedReader.readLine();
+    public CsvFileReadIn(String filename) {
+        this.filename = filename;
+    }
 
-        while((line = bufferedReader.readLine()) != null){
-            String[] values = line.split("\\s+");
-            whichTest[0] = Integer.parseInt(values[0]);
-            testNumbers[1] = Integer.parseInt(values[1]);
+
+    public void readIn(String filename, NumberTester numberTester)  {
+        try (BufferedReader br = new BufferedReader(new FileReader(filename))){
+            int numberOfTestcases = Integer.parseInt(br.readLine());
+            for(int i = 0; i<numberOfTestcases; i++){
+                String line = br.readLine();
+                String[] parts = line.split("");
+                int testType = Integer.parseInt(parts[0]);
+                int number = Integer.parseInt(parts[1]);
+
+                numberTester.testFile(testType, number);
+            }
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e.getMessage() + "Fehler in der readIn Methode");
+        } catch (IOException e) {
+            throw new RuntimeException(e.getMessage() + "Fehler in der readIn Methode");
         }
-        
     }
 }

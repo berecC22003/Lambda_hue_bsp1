@@ -12,7 +12,13 @@ public class NumberTester {
         return true;
     };
 
-    NumberTest palindromeTester;
+    NumberTest palindromeTester = (number) -> {
+        if(number <= 1) return false;
+        for(int i = 0; i <= Math.sqrt(number);i++){
+            if(number % i == 0)return false;
+        }
+        return false;
+    };
 
 
     public NumberTester(String fileName){
@@ -31,7 +37,9 @@ public class NumberTester {
         this.palindromeTester = palindromeTester;
     }
 
-    public void testFile(){
-
+    public void testFile(int testType, int number){
+        switch(testType){
+            
+        }
     }
 }
