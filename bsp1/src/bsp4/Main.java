@@ -21,13 +21,13 @@ public class Main {
                 break;
             }
 
-            System.out.print("Enter number x a: ");
+            System.out.print("Enter number x a> ");
             double xA = scanner.nextDouble();
-            System.out.print("Enter number x b: ");
+            System.out.print("Enter number x b> ");
             double xB = scanner.nextDouble();
-            System.out.print("Enter number y a: ");
+            System.out.print("Enter number y a> ");
             double yA = scanner.nextDouble();
-            System.out.print("Enter number y b: ");
+            System.out.print("Enter number y b> ");
             double yB = scanner.nextDouble();
 
             Number x = new Number(xA, xB);
@@ -35,11 +35,11 @@ public class Main {
 
             while (true) {
                 System.out.println("Choose operation:");
-                System.out.println("1 = Add");
-                System.out.println("2 = Subtract");
-                System.out.println("3 = Multiply");
-                System.out.println("4 = Divide");
-                System.out.println("5 = Enter numbers again");
+                System.out.println("1 - Add");
+                System.out.println("2 - Subtract");
+                System.out.println("3 - Multiply");
+                System.out.println("4 - Divide");
+                System.out.println("5 - Enter numbers again");
                 int operation = scanner.nextInt();
 
                 if (operation == 5) {
@@ -48,16 +48,15 @@ public class Main {
                 Number result = null;
                 switch (choice) {
                     case 1:
-                        result = performOperation(rationalCalculator, operation, x, y);
+                        result = selection(rationalCalculator, operation, x, y);
                         break;
                     case 2:
-                        result = performOperation(vectorCalculator, operation, x, y);
+                        result = selection(vectorCalculator, operation, x, y);
                         break;
                     case 3:
-                        result = performOperation(complexCalculator, operation, x, y);
+                        result = selection(complexCalculator, operation, x, y);
                         break;
                 }
-
                 if (result != null) {
                     System.out.println("=========================");
                     System.out.println("Solution:");
@@ -67,11 +66,10 @@ public class Main {
                 }
             }
         }
-
         scanner.close();
     }
 
-    private static Number performOperation(AbstractCalculator calculator, int operation, Number x, Number y) {
+    private static Number selection(AbstractCalculator calculator, int operation, Number x, Number y) {
         switch (operation) {
             case 1:
                 return calculator.add(x, y);
